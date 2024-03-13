@@ -1,0 +1,122 @@
+.parent{
+    display: flex;
+    /* flex-direction: column; */
+    width: 100vw;
+    
+}
+.center{
+    text-align: center;
+}
+.justify{
+    text-align:justify;
+    padding-right: 20px;
+}
+.text{
+    padding: auto;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+.image2{
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.font {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.wordspacing{
+    word-spacing: 5px;
+}
+
+.linespacing{
+    line-height: 22px;
+}
+  
+
+.left{
+    padding-top: 50px;
+    width: 30%;
+    padding-left: 20px;
+    background-color: rgb(124,209,205,255)
+}
+
+.right{
+    padding-top: 20px;
+    padding-left: 40px;
+    width: 70%;
+    background-color: white
+
+}
+
+.edu{
+    border: 3px solid rgb(124,209,205,255);
+    border-width: 0 120px;
+    padding: 3px;
+    background-color: rgb(164, 164, 165);
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.fontsize{
+    font-size: 20px;
+}
+
+.image1{
+    border-radius: 120px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  
+}
+
+.subright{
+    display: flex;
+ 
+}
+
+.icon {
+    font-size: 1.2em; 
+    vertical-align: middle; /* Align the icon vertically with text */
+    margin-right: 0.5em; 
+  }
+
+  .image-container {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px;
+      }
+
+      .image-card {
+          flex: 0 0 30%; 
+          /* This property is shorthand for flex-grow, flex-shrink, and flex-basis */
+          text-align: center;
+      }
+
+      .skills-container {
+          list-style: none;
+          padding: 5px;
+          display: flex;
+          justify-content: space-around;
+
+      }
+
+      .skill {
+          display: flex;
+          align-items: center;
+          color: #333333; 
+          height: 2px;
+          margin-left: 1px;
+
+
+      }
+      /* used to insert a green round circle before the skill text. */
+      .skill::before {
+          content: '\2022'; /* Unicode character for a bullet (circle) */
+          font-size: 60px;
+          margin-right: 10px; /* Adjust the spacing between the circle and text */
+          color: #4CAF50; 
+      }
