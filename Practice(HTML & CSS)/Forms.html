@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <h3>This is Forms</h3>
+
+    <!-- to send your data to backend -->
+    <form action="backend.php">
+
+        <!-- used for partitioning just like br -->
+        <div>
+            <!-- backend will recgonise this data using Name -->
+        Name: <input type="text" name="myName"> 
+        </div>
+        <br>
+
+        <!-- label is used when you want to select the field just by clicking on the name -->
+       
+        <label for="Role">Role</label>
+        <div>
+    <input type="text" name="myRole" id="Role">
+    </div>
+    <br>
+
+    <div>
+        Email: <input type="email" name="myEmail">
+    </div>
+
+  <br>
+    <div>
+        Date: <input type="date" name="myDate">
+    </div>
+
+    
+  <br>
+  <div>
+      Number: <input type="number" name="myNumber">
+  </div>
+  <br>
+
+
+  <div>
+  Are you eligible? : <input type="checkbox" name="myEligibility" checked>
+</div>
+<br>
+
+<!-- only one will be selected because both have same names -->
+<div>
+   Gender: Male <input type="radio" name="myGender"> Female <input type="radio" name="myGender">
+  </div>
+  <br>
+
+   <div>
+    Write about yourself:
+    <br>
+    <textarea name="myText" cols="30" rows="10"></textarea>
+    </div>
+    <br>
+
+    <div>
+      Your car name: <select name="myCar">
+        <option value="anyCar" selected>Choose any Car</option>
+        <option value="city">City</option>
+        <option value="bmw">BMW</option>
+        <option value="tesla">Tesla</option>
+      </select>
+        </div>
+        <br>
+
+
+   <div>
+    <input type="week" name="myWeek">
+    </div>
+    <br>
+
+    <div>
+        <input type="range" name="myRange">
+        </div>
+        <br>
+
+        <div>
+            <input type="time" name="myTime">
+            </div>
+            <br>
+
+            <div>
+                Password: <input type="password" name="myPassword">
+                </div>
+                <br>
+
+                <div>
+                    Select any File: <input type="file" name="myFile">
+                    </div>
+                    <br>
+
+                    <div>
+                        Select any Color: <input type="color" name="myColor">
+                        </div>
+                        <br>
+
+
+
+        <div>
+            <input type="reset" value="Reset Now">
+            </div>
+            <br>
+
+
+
+   
+    <div>
+    <input type="submit" value="Submit now">
+</div>
+
+    </form>
+</body>
+</html>

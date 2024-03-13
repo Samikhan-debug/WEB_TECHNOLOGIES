@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display property</title>
+    <style>
+        .hello1{
+            margin: 0;
+            padding: 0;
+
+        }
+        .hello{
+            border: 2px solid blue;
+            display: inline;
+            /* this makes any block to inline.
+            top padding/margin is not respected in inline
+            for this we use inline-block  */
+        }
+        .box{
+            box-shadow: 5px 15px 5px red;
+        }
+        .box1{
+            text-shadow: 2px 2px 4px purple;
+            outline: 2px solid brown;
+            /* outline is more flexible than border */
+        }
+        .list{
+            list-style:armenian;
+            /* list-style-image: url(); can use image as markup */
+        }
+        .box2{ 
+            width:40vw;
+            height: 12vh;
+            border: 2px solid black;
+            overflow: scroll;
+            /* as text was going out of border we use overflow */
+
+            
+            /* white-space:nowrap;
+            for moving scroll horizontally */
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Display property</h1>
+
+    <div class="hello hello1">This is a div</div>
+    <div class="hello">This is also div</div>
+    <span>This is a span</span>
+    <span>This is also span</span>
+  <!-- --------------------------------------------------------   -->
+
+  <h2>Shadows and outlines</h2>
+  <div class="box">This is a box</div>
+  <p class="box1">This is a paragraph</p>
+
+  <!-- --------------------------------------------------------   -->
+
+  <h2>List Styles</h2>
+
+  <nav>
+    <ul>
+        <li class="list">Home</li>
+        <li>About us</li>
+        <li>Contact</li>
+    </ul>
+  </nav>
+
+    <!-- --------------------------------------------------------   -->
+
+    <h2>Overflow Property</h2>
+    <div class="box2">hello this is Lorem ipsum 
+        dolor sit amet consectetur adipisicing elit. Q
+        uam iste tenetur perferendis modi aperiam optio 
+        officia molestias possimus doloribus odio, enim 
+        porro aliquam minima deserunt hic, incidunt earum quo omnis!
+    </div>
+
+</body>
+
+</html>

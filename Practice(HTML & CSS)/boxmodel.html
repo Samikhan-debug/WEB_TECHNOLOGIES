@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <style>
+        .box1{
+            background-color: aqua;
+           border: 2px solid red;
+           box-sizing: border-box
+           
+/* it's a concept in CSS that determines how the total width and height of an element are calculated.
+In CSS, the default box-sizing value is content-box, which means that the width and height of an 
+element are calculated only based on the content inside it, excluding padding, border, and margin. 
+On the other hand, when you set box-sizing: border-box, the width and height include the content, padding, and border, 
+but not the margin.; */
+
+        }
+        .box2{
+            background-color: brown;
+            padding-left: 4px;
+            margin-top: 10px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">I am a box1</div>
+    <div class="box2">I am a box2</div>
+</body>
+</html>
+
+<!-- Margin collapsing is a behavior in CSS where the vertical margins of adjacent 
+    block-level elements collapse into a single margin. This means that instead of the margins adding up, 
+    the larger of the two margins is used, and the smaller margin is ignored. -->

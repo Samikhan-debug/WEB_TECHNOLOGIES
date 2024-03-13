@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <style>
+        :root{
+            --color: blue;
+            --seccolor: rgb(61, 61, 109);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        ul{
+            display: flex;
+        }
+        ul li{
+            list-style: none;
+            padding: 10px;
+        }
+        .box{
+            background-color: var(--color);
+        }
+        .container{
+            background-color: var(--seccolor)
+        }
+        .container1{
+            --color:orange;
+            /* local variable */
+            background-color: var(--color)
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+    <div class="container">hey afsadfsdsa Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, accusamus odit dignissimos quod perferendis obcaecati cum voluptate doloremque sit sequi sapiente vero ad iusto quae quisquam consectetur nihil unde vitae!</div>
+    <div class="container1">hey afsadfsdsa Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi, accusamus odit dignissimos quod perferendis obcaecati cum voluptate doloremque sit sequi sapiente vero ad iusto quae quisquam consectetur nihil unde vitae!</div>
+</body>
+</html>

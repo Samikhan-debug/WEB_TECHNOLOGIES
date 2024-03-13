@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+
+    <style>
+        /* Element selector */
+        p{
+            color: red;
+        }
+
+        /* id selector */
+        #secondID{
+            color: blue;
+        }
+
+        /* class selector */
+        .thirdclass{
+            color: green;
+        }
+
+        /* grouping selector */
+        footer,span{
+            color: pink;
+        }
+
+        /* child selector */
+        div > p{
+            color: blue;
+        }
+
+        /* descendant selector */
+
+        div  p{
+            color: red;
+        }
+
+        /* universal selector */
+        *{
+            margin-left: auto;
+        }
+
+        /* pseudo Selector */
+
+        a:visited{
+            color: yellow;
+        }
+
+        a:hover{
+            color: pink;
+        }
+
+        .box:first-child{
+            background-color: red;
+        }
+        /* 
+        .box::first-line{
+            color:yellow
+        } */
+
+        /* attribute selector */
+        [data-color="primary"]{
+            background-color: blueviolet;
+        }
+
+        .box1::after{
+            content: " Sami is good";
+        }
+
+
+
+       
+    </style>
+</head>
+<body>
+    <h3>Selectors</h3>
+    <p>This is a simple paragraph to show selectors</p>
+    <p id="secondID">This is a  2 simple paragraph to show selectors</p>
+    <p class="thirdclass">This is a 3 simple paragraph to show selectors</p>
+
+    <span>This is 4 span</span>
+    <footer>This is 5 footer</footer>
+
+    <div>
+        <p>Hello</p>
+    </div>
+
+    <div>
+        <article>
+            <p>Hello</p>
+        </article>
+       
+    </div>
+
+    <a href="https://www.google.com/">Go To google</a>
+
+    <!-- ----------------------------------------------------- -->
+
+    <h3>MORE ON Selectors</h3>
+
+    <div class="boxes">
+    <div class="box">Hey i am a box</div>
+    <div class="box1">Hey i am a box</div>
+    <div class="box">Hey i am a box</div>
+    <div data-color="primary" class="box">Hey i am a box</div>
+</div>
+
+</body>
+</html>
