@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,28 +21,24 @@
 
     <div class="parent">
         <div class="left">
-
             <h5>Send Us a Message</h5>
-
-            <span>Have something on your mind? We'd love to hear from you! Use the form below to send us a message, and
-                our
-                team will respond promptly. Your feedback is important to us, and we're here to help with any questions
-                or
-                concerns.</span>
-            <div>
-                <input type="text" placeholder="Your Name"> <input type="text" placeholder="Your Name">
-            </div>
-            <div>
-                <input type="text" placeholder="Your Name"> <input type="text" placeholder="Your Name">
-            </div>
-            <div>
-                <textarea placeholder="Your input..."></textarea>
-            </div>
-
-
-            <button type="submit">Submit</button>
-
+            <span>Have something on your mind? We'd love to hear from you! Use the form below to send us a message, and our team will respond promptly. Your feedback is important to us, and we're here to help with any questions or concerns.</span>
+            <form id="contactForm">
+                <div>
+                    <input type="text" name="firstName" placeholder="Your First Name" required> 
+                    <input type="text" name="lastName" placeholder="Your Last Name" required>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Your Email address" required> 
+                    <input type="text" name="phone" placeholder="Your Phone Number" required>
+                </div>
+                <div>
+                    <textarea name="comments" placeholder="Your comments..." required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
+  
 
         <div class="right">
 
@@ -138,15 +135,52 @@
             </script>
         </div>
     </div>
+    <div class="footer">
+        <p>TechCraft</p>
+        <p>Crafting Your Digital Masterpiece, One Component at a Time!</p>
+    </div>
 
-
-            <div class="footer">
-                <p>TechCraft</p>
-                <p>Crafting Your Digital Masterpiece, One Component at a Time!</p>
-            </div>
-
-        </div>
+    </div>
 
 </body>
+<script>
+    $(document).ready(function() {
+        $("#contactForm").submit(function(event) {
+            var isValid = true;
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var phoneReg = /^\d{11}$/;
+    
+            // Check if the first name field is not empty
+            if ($.trim($("[name='firstName']").val()) === '') {
+                alert('Please enter your first name.');
+                isValid = false;
+            }
+            
+            // Check if the email field is not empty and is a valid email address
+            if ($.trim($("[name='email']").val()) === '' || !emailReg.test($("[name='email']").val())) {
+                alert('Please enter a valid email address.');
+                isValid = false;
+            }
+            
+            // Check if the phone field is not empty, is numeric, and is exactly 11 digits
+            var phoneValue = $.trim($("[name='phone']").val());
+            if (phoneValue === '' || !phoneReg.test(phoneValue)) {
+                alert('Please enter a valid phone number with exactly 11 digits.');
+                isValid = false;
+            }
+            
+            // Check if the message field is not empty
+            if ($.trim($("[name='comments']").val()) === '') {
+                alert('Please enter your message.');
+                isValid = false;
+            }
+            
+            // If any field is not valid, prevent the form from being submitted
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+    </script>
 
 </html>
