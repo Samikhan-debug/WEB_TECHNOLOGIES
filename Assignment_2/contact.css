@@ -2,10 +2,13 @@
     font-size: 42px;
     text-align: left;
     padding:30px;
+    color: white;
+    margin-left: 08px;
 }
 
 body{
-    background-color: #E8E8E8;
+    background-color: #1a1919;
+    color: white;
 }
 
 .parent{
@@ -13,8 +16,8 @@ body{
 }
 .left{
     width: 45%;
-    padding: 20px;
-    border-right: 2px solid grey ;
+    padding: 40px;
+    border-right: 2px solid red ;
 }
 .right{
     width: 40%;
@@ -26,12 +29,12 @@ body{
 
 input {
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid red;
     outline: none;
     padding: 10px;
     width: 300px;
     margin: 10px;
-    background-color: #E8E8E8;
+    background-color: #1a1919;
   }
 
 input::placeholder {
@@ -40,12 +43,12 @@ input::placeholder {
 
 textarea {
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid red;
     outline: none;
     padding: 10px;
     width: 300px;
     margin: 10px;
-    background-color: #E8E8E8;
+    background-color: #1a1919;
   }
 
   textarea::placeholder {
@@ -54,12 +57,16 @@ textarea {
 
   button {
     padding: 10px 20px;
-    background-color: black;
+
+    margin: 15px;
+    background-color: red;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
   }
+
 
 .map {
     width: 60%; /* Adjust the width as needed */
@@ -67,7 +74,8 @@ textarea {
     border: 0;
     margin-top: 40px;
     padding-left: 20%;
-    background-color: #E8E8E8;
+    margin-left: 7%;
+
 }
 .parent2{
     display: flex;
@@ -126,7 +134,7 @@ textarea {
 .faq-question::after {
     content: '\002B';
     font-size: 24px;
-    color: #555;
+    color: red;
 }
 
 .faq-question.open::after {
@@ -142,3 +150,71 @@ textarea {
     font-weight: bold;
 }
 
+
+.social-bar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+.social-icons {
+    display: flex;
+    margin-left: 16px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.help-link {
+    text-decoration: none;       
+    color: white;
+   margin-right: 20px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    padding-right: 6%;
+  
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    /* this will remove the hyperlink underline */
+    padding: 14px 20px;
+    display: inline-block;
+
+}
+
+nav a:hover{
+    background-color:#1a1919;
+}
+
+header{
+    background-color: #1a1919;
+    padding:15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    
+}
+.logo img{
+    height: 150px;
+}
+.header-content{
+    text-align: center;
+    padding-right: 15%;
+    margin: 0 auto;
+ }
+
+ .pads{
+    padding-top: 20px;
+ }
