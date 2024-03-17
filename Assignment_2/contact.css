@@ -35,6 +35,7 @@ input {
     width: 300px;
     margin: 10px;
     background-color: #1a1919;
+    color: white;
   }
 
 input::placeholder {
@@ -49,6 +50,7 @@ textarea {
     width: 300px;
     margin: 10px;
     background-color: #1a1919;
+    color: white;
   }
 
   textarea::placeholder {
