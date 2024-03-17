@@ -2,11 +2,49 @@
     font-family: "Calibri", "times";
 }
 
+.header {
+    background-color: #3A4053; /* Change the color as you desire */
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center; /* Centers the content horizontally */
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Adjust the gap between the image and the titles as needed */
+}
+
+.header-image {
+    border-radius: 50%; /* Makes the image round */
+    width: 150px; /* Adjust the size as needed */
+    height: auto;
+    border: 10px solid #292F3B; /* Optional: Adds a border around the image */
+}
+
+.header-titles h1,
+.header-titles h2 {
+    margin: 0;
+}
+
+
 .heading {
     font-family: 'Alfa Slab One';
     font-size: 22px;
 }
 
+.border{
+    background-color:#3A4053 ;
+    border: 1px solid #3A4053;
+    padding:20px;
+    color: white;
+    font-size: x-large;
+    border-width: 0 120px;
+    margin-bottom: 10px;
+    
+}
 .parent {
     display: flex;
     width: 100vw;
@@ -19,12 +57,19 @@
 .justify {
     text-align: justify;
     padding-right: 20px;
+    padding-top: 15px;
+    font-size: 17px;
+}
+.padi{
+   margin-top: 40px;
 }
 
 .text {
     padding: auto;
     padding-left: 50px;
     padding-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .image2 {
@@ -48,30 +93,34 @@
     padding-top: 50px;
     width: 30%;
     padding-left: 20px;
-    background-color: rgb(124, 209, 205, 255);
+    background-color: #292F3D;
+    color: white;
 }
 
 .right {
     padding-top: 20px;
     padding-left: 40px;
     width: 70%;
-    background-color: white;
+    background-color: #F0F0F2;
 }
 
 .edu {
-    border: 3px solid rgb(124, 209, 205, 255);
+    border: 3px solid #3B3F52;
     border-width: 0 120px;
     padding: 3px;
-    background-color: rgb(164, 164, 165);
-    border-radius: 30px;
+    background-color: #3B3F52;
+    padding: 08px;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
+    color: white;
+   
 }
 
 .fontsize {
-    font-size: 20px;
+    font-size: 21px;
+    font-weight: bolder;
 }
 
 .image1 {
@@ -124,7 +173,7 @@
 
 .skill::before {
     content: '\2022'; /* Unicode character for a bullet */
-    color: #4CAF50; /* Bullet color */
+    color: #3A4053; /* Bullet color */
     font-size: 40px; /* Bullet size */
     padding-right: 10px; /* Space between the bullet and the text */
     margin-top: -5px; /* Adjust vertical alignment if necessary */
@@ -134,10 +183,45 @@
     padding-left: 75px;
 }
 .padd{
+    padding-top:10px;
     padding-left: 35px;
+}
+.padbot{
+    padding-bottom: 20px;
 }
 .space{
     line-height: 20px;
     padding: 2px;
+}
 
+.help-link {
+    text-decoration: none;       
+    color: #3A4053;
+    font-weight: bolder;
+    font-size: 20px;
+
+}
+.size{
+    font-size: 17px;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.circle {
+    width: 20px; /* Circle size */
+    height: 20px; /* Circle size */
+    border-radius: 50%; /* Makes it circular */
+    background-color: #3A4053; /* Unfilled circle color */
+    margin: 0 5px; /* Space between circles */
+    border: 2px solid #fff; /* Border for the circle */
+}
+
+.circle.active {
+    background-color: green; /* Filled circle color */
 }
