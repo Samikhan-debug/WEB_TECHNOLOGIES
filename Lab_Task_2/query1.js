@@ -4,30 +4,39 @@ function displayStories() {
       url: "https://usmanlive.com/wp-json/api/stories",
       method: "GET",
       dataType: "json",
+
       success: function (data) {
         var storiesList = $("#storiesList");
         storiesList.empty();
-  
+        
+        var row = $('<div class="row"></div>'); // Create a row for the cards
         $.each(data, function (index, story) {
-          storiesList.append(
-            `<div class="mb-3">
-                  <h3>${story.title}</h3>
-                  <div>${story.content}</div>
-                  <div>
-                      <button class="btn btn-info btn-sm mr-2 btn-edit" data-id="${story.id}">Edit</button>
-                      <button class="btn btn-danger btn-sm mr-2 btn-del" data-id="${story.id}">Delete</button>
+          var cardHtml = `
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                  <h5 class="card-title">${story.title}</h5>
+                  <p class="card-text">${story.content}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary btn-edit" data-id="${story.id}">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary btn-del" data-id="${story.id}">Delete</button>
+                    </div>
                   </div>
+                </div>
               </div>
-              <hr />
-              `
-          );
+            </div>`;
+          row.append(cardHtml); // Add the card to the current row
         });
+        storiesList.append(row); // Add the row to the storiesList container
       },
+      
       error: function (error) {
         console.error("Error fetching stories:", error);
       },
     });
   }
+
   // Function to delete a story
   function deleteStory() {
     let storyId = $(this).attr("data-id");
@@ -42,11 +51,12 @@ function displayStories() {
       },
     });
   }
+
   function handleFormSubmission(event) {
     event.preventDefault();
-    let storyId = $("#createBtn").attr("data-id");
-    var title = $("#createTitle").val();
-    var content = $("#createContent").val();
+    let storyId = $("#createbtn").attr("data-id");
+    var title = $("#createtitle").val();
+    var content = $("#createcontent").val();
     if (storyId) {
       $.ajax({
         url: "https://usmanlive.com/wp-json/api/stories/" + storyId,
@@ -74,6 +84,8 @@ function displayStories() {
       });
     }
   }
+
+
   function editBtnClicked(event) {
     event.preventDefault();
     let storyId = $(this).attr("data-id");
@@ -82,17 +94,19 @@ function displayStories() {
       method: "GET",
       success: function (data) {
         console.log(data);
-        $("#clearBtn").show();
-        $("#createTitle").val(data.title);
-        $("#createContent").val(data.content);
-        $("#createBtn").html("Update");
-        $("#createBtn").attr("data-id", data.id);
+        $("#clearbtn").show();
+        $("#createtitle").val(data.title);
+        $("#createcontent").val(data.content);
+        $("#createbtn").html("Update");
+        $("#createbtn").attr("data-id", data.id);
       },
       error: function (error) {
         console.error("Error deleting story:", error);
       },
     });
   }
+
+
   $(document).ready(function () {
     // Initial display of stories
   
@@ -100,13 +114,13 @@ function displayStories() {
     $(document).on("click", ".btn-del", deleteStory);
     $(document).on("click", ".btn-edit", editBtnClicked);
     // Create Form Submission
-    $("#createForm").submit(handleFormSubmission);
-    $("#clearBtn").on("click", function (e) {
+    $("#contactForm").submit(handleFormSubmission);
+    $("#clearbtn").on("click", function (e) {
       e.preventDefault();
-      $("#clearBtn").hide();
-      $("#createBtn").removeAttr("data-id");
-      $("#createBtn").html("Create");
-      $("#createTitle").val("");
-      $("#createContent").val("");
+      $("#clearbtn").hide();
+      $("#createbtn").removeAttr("data-id");
+      $("#createbtn").html("Create");
+      $("#createtitle").val("");
+      $("#createcontent").val("");
     });
   });
