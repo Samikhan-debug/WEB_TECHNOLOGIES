@@ -1,0 +1,68 @@
+.social-bar {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+.social-icons {
+    display: flex;
+    margin-left: 16px;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.help-link {
+    text-decoration: none;       
+    color: white;
+   margin-right: 20px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    padding-right: 6%;
+  
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    /* this will remove the hyperlink underline */
+    padding: 14px 20px;
+    display: inline-block;
+
+}
+
+nav a:hover{
+    background-color:#1a1919;
+}
+
+header{
+    background-color: #1a1919;
+    padding:15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    
+}
+.logo img{
+    height: 150px;
+}
+.header-content{
+    text-align: center;
+    padding-right: 15%;
+    margin: 0 auto;
+ }
+
+ body{
+    background-color: #1a1919;
+    color: white;
+}
