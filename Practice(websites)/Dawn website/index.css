@@ -1,0 +1,146 @@
+nav{
+    display: flex;
+    background-color: #000000;
+    color: #9FA6B2;
+    justify-content: center;
+    justify-content: space-around;
+
+   
+   
+}
+.heading{
+   text-align: center;
+   font-size: 42px;
+   margin-top: 5px;
+   margin-bottom: 0px;
+}
+.heading1{
+    text-align: center;
+    margin-top: 5px;
+    font-size: 14px;
+}
+.hr{
+    border: 2px solid black;
+}
+.nav1{
+    display: flex;
+    color: rgb(33, 33, 33);
+    justify-content: center;
+    justify-content: space-around;
+
+}
+
+
+.layout {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Or whatever the max width of your content area should be */
+    margin: 0 auto; /* Center the layout */
+}
+
+.left-column, .center-column, .right-column {
+    margin: 10px; /* Gutter space */
+}
+
+.left-column {
+    flex: 1; /* Takes up 1 part of the available space */
+}
+
+.center-column {
+    flex: 2; /* Takes up 2 parts of the available space, making it larger */
+}
+
+.right-column {
+    flex: 1; /* Takes up 1 part of the available space */
+}
+
+.left-column img, .center-column img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+h2, h3, h4 {
+    margin: 0.5em 0;
+}
+
+.sidebar-article {
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 992px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .left-column, .center-column, .right-column {
+        width: auto; /* Each column takes full width */
+        margin: 10px 0; /* Vertical spacing between stacked columns */
+    }
+}
+
+
+.site-footer {
+    background-color: #000; /* Footer background color */
+    color: #fff; /* Footer text color */
+    padding: 20px 0; /* Padding for the footer */
+    font-family: Arial, sans-serif; /* Change as per your design */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around; /* This will distribute space between the columns */
+    align-items: flex-start;
+    max-width: 1200px; /* Or your desired width */
+    margin: 0 auto; /* Center the footer content */
+}
+
+.footer-section {
+    margin: 0 10px; /* Spacing between footer columns */
+}
+
+.footer-section h4 {
+    margin-bottom: 10px; /* Spacing under section headings */
+}
+
+.footer-section ul {
+    list-style-type: none; /* Removes bullets from list */
+    padding: 0; /* Removes padding from list */
+    margin: 0; /* Removes margin from list */
+}
+
+.footer-section ul li a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Removes underline from links */
+    margin-bottom: 5px; /* Spacing between links */
+    display: block; /* Each link will take up the full width of the list item */
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+.footer-bottom {
+    text-align: center; /* Centers the bottom footer content */
+    padding-top: 10px; /* Space above the bottom footer content */
+}
+
+.social-media a img {
+    width: 24px; /* Size of social media icons */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 5px; /* Spacing between icons */
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px; /* Spacing between stacked sections */
+    }
+}

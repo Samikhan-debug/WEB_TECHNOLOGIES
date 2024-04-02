@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    background-color: black;
+    padding: 10px 20px;
+}
+.heading{
+    color: red;
+    display: flex;
+
+    font-size: 44px;
+}
+.left{
+    display: flex;
+    align-content: left;
+}
+
+.btn2,.btn3{
+    background-color: #1C1816;
+    color: white;
+    padding: 10px 15px;
+    border-color: red;
+    margin: 5px;
+
+}
+
+.btn1{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+.section{
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.btn4{
+    background-color: red;
+    color: white;
+    padding: 6px 400px;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+}
+
+.heading2{
+    background-color: black;
+    color: white;
+    padding: 40px;
+    font-size: 32px; 
+}
+
+.section1{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    background-color: black;
+    padding-bottom: 30px;
+
+
+}
+.btn{
+    background-color: red;
+    border: none;
+
+}
+
+.section2{
+    display: flex;
+    background-color: #1C1816;
+    padding: 20px 25px;
+    color: white;
+    font-size: 24px;
+
+}
+.left2{
+    width: 30%;
+    padding: 30px;
+}
+.center2{
+    width: 40%;
+    padding: 30px;
+}
+.right2{
+width: 30%;
+padding: 30px;
+}
+.new{
+    color: white;
+    background-color: #1C1816;
+    font-size: 24px;
+    padding: 15px;
+    padding-left:20%
+
+}
+.heading1{
+    color: red;
+  text-align: center;
+    font-size: 72px;
+    padding-right: 70px;
+    background-color: #1C1816;
+    margin-bottom: 0px;
+
+}
+
+.drawer {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 200px;
+    top: 60px;
+    left: 0; /* Adjusted */
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.drawer a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.drawer a:hover {
+    background-color: #ddd;
+}
+
+.open-drawer {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
