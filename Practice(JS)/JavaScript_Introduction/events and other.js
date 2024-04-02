@@ -11,3 +11,11 @@ button.addEventListener("click", () => {
 // triggered on a nested or child element are propagated up through the 
 // DOM (Document Object Model) hierarchy to reach the parent elements. 
 // This propagation continues until it reaches the root of the document.
+
+
+// this type of function is run after other code
+setTimeout(()=> {
+    console.log("Hellok");
+
+},100)
+
