@@ -32,9 +32,14 @@ body {
     font-weight: bold;
 }
 
-.head{
-    text-decoration: blue;
+.blue{
+    
     color: blue;
+    font-weight: bolder;
+}
+.padding{
+    padding-left: 35px;
+    font-weight: bold;
 }
 
 nav {
