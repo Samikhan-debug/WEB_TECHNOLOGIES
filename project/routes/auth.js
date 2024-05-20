@@ -1,6 +1,8 @@
 const express = require('express');
 const User = require('../models/User'); // Adjust the path as necessary
 const router = express.Router();
+const bcrypt = require('bcryptjs');
+
 
 // Registration Handler
 router.post('/register', async (req, res) => {
@@ -16,7 +18,8 @@ router.post('/register', async (req, res) => {
             error: "Username already exists."
         });
     }
-    const newUser = new User({ email, username, password });
+    const hashedPassword = await bcrypt.hash(password, 10);  // Hash the password
+    const newUser = new User({ email, username, password: hashedPassword });
     await newUser.save();
     req.session.user = newUser;
     res.redirect('/');
@@ -26,14 +29,22 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
-    if (!user || user.password !== password) {
-        res.render('loginpage', {
+    if (!user) {
+        return res.render('loginpage', {
             error: "Invalid username or password."
         });
-    } else {
-        req.session.user = user;
-        res.redirect('/');
     }
+
+    // Compare the hashed password
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        return res.render('loginpage', {
+            error: "Invalid username or password."
+        });
+    }
+
+    req.session.user = user;
+    res.redirect('/');
 });
 
 // Logout Handler
