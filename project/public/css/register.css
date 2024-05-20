@@ -112,3 +112,6 @@
   .register-link p a:hover{
     text-decoration: underline;
   }
+  .error-message{
+    padding-top: 15px;
+  }

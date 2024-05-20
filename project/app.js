@@ -6,10 +6,9 @@ const path = require('path');
 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const productRoutes = require('./routes/products');
-
-
 
 // Set the view engine to use EJSn
 app.set('view engine', 'ejs');
@@ -23,6 +22,8 @@ app.use(bodyParser.json()); // For parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/images', express.static('public/images'));
 
+const authRoutes = require('./routes/auth'); 
+
 mongoose
   .connect("mongodb://localhost:27017/WEB_PROJECT")
   .then(() => {
@@ -32,13 +33,26 @@ mongoose
     console.log("Unable to connect");
   });
 
+  app.use(session({
+    secret: 'your-secret-key',  // Change to a strong secret in production
+    resave: false,
+    saveUninitialized: false,
+  }));
+
+app.use(authRoutes);
+app.use((req, res, next) => {
+    res.locals.user = req.session.user; // This will make `user` available in all views
+    next();
+});
+
   app.use('/api/products', productRoutes);
+
 
   app.get('/products', (req, res) => res.render('products'));
 
 // Define routes
 app.get('/', (req, res) => {
-    res.render('homepage');
+    res.render('homepage', { username: req.session.user ? req.session.user.username : null });
 });
 
 app.get('/contactus', (req, res) => {
@@ -89,6 +103,3 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
-
-

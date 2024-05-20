@@ -7,15 +7,18 @@
         <div>
             <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
         </div>
-
         <div>
             <a href="https://www.instagram.com" target="_blank" class="fa fa-instagram"></a>
         </div>
-
         <div>
             <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
         </div>
     </div>
+    <% if (typeof username !== 'undefined' && username) { %>
+        <div class="user-greeting">
+            Welcome, <%= username %>!
+        </div>
+    <% } %>
     <a class="help-link" href="mailto:info@techcraft.pk">Need help? info@techcraft.pk</a>
 </div>
 
@@ -44,4 +47,7 @@
     <a href="/reviewus">Review Us</a>
     <a href="/info">About Us</a>
     <a href="/products">Product Details</a>
+    <% if (user) { %> <!-- Use 'user' directly from res.locals -->
+        <a href="/logout">Logout</a>
+    <% } %>
 </nav>

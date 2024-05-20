@@ -105,4 +105,7 @@ nav a:hover{
     font-weight: bold;
 }
 
-
+.user-greeting{
+    font-size: 24px;
+    color: white;
+}
