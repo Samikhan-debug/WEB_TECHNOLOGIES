@@ -1,5 +1,3 @@
-// app.js
-
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -7,6 +5,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+
 
 const productRoutes = require('./routes/products');
 

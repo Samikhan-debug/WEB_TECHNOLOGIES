@@ -3,12 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const pagination = document.getElementById('pagination');
 
     let currentPage = 1;
-    const limit = 6;
+    const limit = 6; // Adjust this to change the number of items per page
 
-    // Retrieve cart from session storage or initialize an empty object
     let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
 
-    // Adds a product to the cart
     window.addToCart = function(productId) {
         if (cart[productId]) {
             cart[productId]++;
@@ -19,21 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Product added to cart!');
     };
 
-    window.removeFromCart = function(productId) {
-        if (cart[productId]) {
-            if (cart[productId] > 1) {
-                cart[productId]--;
-            } else {
-                delete cart[productId];
-            }
-            sessionStorage.setItem('cart', JSON.stringify(cart));
-            alert('Product removed from cart!');
-            // Refresh the cart display by re-rendering the cart items
-            displayCart();
-        }
-    };
-
-    // Function to create each product card
     function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'col-md-4';
@@ -53,18 +36,30 @@ document.addEventListener('DOMContentLoaded', function() {
         productList.appendChild(card);
     }
 
-    // Function to fetch products based on current page
+    function createPagination(totalPages) {
+        pagination.innerHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.innerText = i;
+            pageButton.className = 'btn btn-outline-primary mx-1';
+            pageButton.onclick = () => {
+                currentPage = i;
+                fetchProducts();
+            };
+            pagination.appendChild(pageButton);
+        }
+    }
+
     function fetchProducts() {
         fetch(`/api/products?page=${currentPage}&limit=${limit}`)
         .then(response => response.json())
         .then(data => {
-            productList.innerHTML = '';
+            productList.innerHTML = ''; // Clear existing product cards
             data.products.forEach(createProductCard);
             createPagination(data.totalPages);
         })
         .catch(error => console.error('Error fetching products:', error));
     }
 
-    // Initial fetch of products
-    fetchProducts();
+    fetchProducts(); // Initial call to load products
 });
