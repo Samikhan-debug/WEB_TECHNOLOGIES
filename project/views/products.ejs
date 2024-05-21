@@ -33,23 +33,15 @@
         </form>
         <hr>
         <!-- Update Product Form (Hidden Initially) -->
-        <div id="updateProductForm" style="display:none;">
-            <h2 class="head2">UPDATE PRODUCT</h2>
-            <form id="updateProductData" enctype="multipart/form-data">
-                <input type="hidden" id="updateId" class="input">
-                <label for="Title">Name:</label>
-                <input type="text" id="updateName" placeholder="Product Name" required class="input">
-                <label for="Title">Price:</label>
-                <input type="number" id="updatePrice" placeholder="Price" required class="input">
-                <label for="Title">Description:</label>
-                <input type="text" id="updateDescription" placeholder="Description" required class="input">
-                <label for="Title">Category:</label>
-                <input type="text" id="updateCategory" placeholder="Category" required class="input">
-                <label for="Title">Photo</label>
-                <input type="file" id="updateImage" accept="image/*" class="input">
-                <button type="button" onclick="submitUpdate()" class="button">Update Product</button>
-            </form>
-        </div>
+        <form id="updateProductData" style="display:none;" enctype="multipart/form-data">
+            <input type="hidden" id="updateId">
+            <input type="text" id="updateName" name="name" required>
+            <input type="number" id="updatePrice" name="price" required>
+            <input type="text" id="updateDescription" name="description" required>
+            <input type="text" id="updateCategory" name="category" required>
+            <input type="file" id="updateImage" name="image" accept="image/*">
+            <button type="button" onclick="submitUpdate()">Update Product</button>
+        </form>
         <!-- Product Listing -->
         <h2 class="head2">PRODUCTS LIST</h2>
         <table class="table table-striped" id="productTable">

@@ -55,7 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.updateProduct = function(id) {
         fetch(`/api/products/${id}`)
         .then(response => response.json())
-        .then(showUpdateForm);
+        .then(product => {
+            document.getElementById('updateId').value = product._id;
+            document.getElementById('updateName').value = product.name;
+            document.getElementById('updatePrice').value = product.price;
+            document.getElementById('updateDescription').value = product.description;
+            document.getElementById('updateCategory').value = product.category;
+            document.getElementById('updateProductData').style.display = 'block'; // Show the form
+        })
+        .catch(error => console.error('Error:', error));
     };
 
     window.showUpdateForm = function(product) {
@@ -68,34 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     window.submitUpdate = function() {
-        console.log("Attempting to submit update");
-        
+        const form = document.getElementById('updateProductData');
+        const formData = new FormData(form);
         const id = document.getElementById('updateId').value;
-        const formData = new FormData(document.getElementById('updateProductData'));
-        for (let [key, value] of formData.entries()) { 
-            console.log(key, value); 
-        }
-        formData.append('id', id);
-        const imageFile = document.getElementById('updateImage').files[0];
-        if (imageFile) {
-            formData.append('image', imageFile);
-        }
     
         fetch(`/api/products/${id}`, {
             method: 'PUT',
             body: formData
         })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Something went wrong on api server!');
-            }
-        })
+        .then(response => response.json())
         .then(data => {
             console.log('Update successful:', data);
-            document.getElementById('updateProductForm').style.display = 'none';
-            fetchProducts(); // Refresh list after update
+            fetchProducts(); // Refresh the product list
+            document.getElementById('updateProductData').style.display = 'none'; // Hide the form again
         })
         .catch(error => {
             console.error('Error:', error);

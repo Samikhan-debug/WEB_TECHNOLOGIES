@@ -13,6 +13,7 @@ const productRoutes = require('./routes/products');
 // Set the view engine to use EJSn
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+const Product = require("./models/Product");
 
 
 
@@ -21,8 +22,10 @@ app.use(express.static("public"));
 app.use(bodyParser.json()); // For parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/images', express.static('public/images'));
+const cookieParser = require("cookie-parser");
 
 const authRoutes = require('./routes/auth'); 
+app.use(cookieParser());
 
 mongoose
   .connect("mongodb://localhost:27017/WEB_PROJECT")
@@ -44,12 +47,11 @@ app.use((req, res, next) => {
     res.locals.user = req.session.user; // This will make `user` available in all views
     next();
 });
-
+app.use(cookieParser());
   app.use('/api/products', productRoutes);
 
 
   app.get('/products', (req, res) => res.render('products'));
-
 // Define routes
 app.get('/', (req, res) => {
     res.render('homepage', { username: req.session.user ? req.session.user.username : null });
@@ -58,6 +60,12 @@ app.get('/', (req, res) => {
 app.get('/contactus', (req, res) => {
     res.render('contactpage');
 });
+
+app.get('/cart', (req, res) => {
+    res.render('cartpage');
+});
+
+
 app.get('/reviewus', (req, res) => {
     res.render('reviewpage');
 });

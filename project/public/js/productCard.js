@@ -5,10 +5,38 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentPage = 1;
     const limit = 6;
 
+    // Retrieve cart from session storage or initialize an empty object
+    let cart = JSON.parse(sessionStorage.getItem('cart')) || {};
+
+    // Adds a product to the cart
+    window.addToCart = function(productId) {
+        if (cart[productId]) {
+            cart[productId]++;
+        } else {
+            cart[productId] = 1;
+        }
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+        alert('Product added to cart!');
+    };
+
+    window.removeFromCart = function(productId) {
+        if (cart[productId]) {
+            if (cart[productId] > 1) {
+                cart[productId]--;
+            } else {
+                delete cart[productId];
+            }
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            alert('Product removed from cart!');
+            // Refresh the cart display by re-rendering the cart items
+            displayCart();
+        }
+    };
+
+    // Function to create each product card
     function createProductCard(product) {
         const card = document.createElement('div');
         card.className = 'col-md-4';
-
         let imageDisplay = product.imageUrl ? `<img src="/${product.imageUrl}" alt="${product.name}" class="card-img-top">` : 'No image';
         
         card.innerHTML = `
@@ -25,22 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         productList.appendChild(card);
     }
 
-    function createPagination(totalPages) {
-        pagination.innerHTML = '';
-
-        for (let i = 1; i <= totalPages; i++) {
-            const pageButton = document.createElement('button');
-            pageButton.innerText = i;
-            pageButton.className = 'btn btn-outline-primary mx-1';
-            pageButton.onclick = () => {
-                currentPage = i;
-                fetchProducts();
-            };
-
-            pagination.appendChild(pageButton);
-        }
-    }
-
+    // Function to fetch products based on current page
     function fetchProducts() {
         fetch(`/api/products?page=${currentPage}&limit=${limit}`)
         .then(response => response.json())
@@ -48,13 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
             productList.innerHTML = '';
             data.products.forEach(createProductCard);
             createPagination(data.totalPages);
-        });
+        })
+        .catch(error => console.error('Error fetching products:', error));
     }
 
-    window.addToCart = function(productId) {
-        // Placeholder for add to cart functionality
-        alert('Added product ' + productId + ' to cart!');
-    };
-
+    // Initial fetch of products
     fetchProducts();
 });

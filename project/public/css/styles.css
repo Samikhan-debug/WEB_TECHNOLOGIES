@@ -105,11 +105,15 @@ nav a:hover{
     font-weight: bold;
 }
 
-.logout-button{
+.logout-button,.login-button{
     background-color: black;
 }
+
 
 .user-greeting{
     font-size: 24px;
     color: white;
+}
+.mean{
+    padding-bottom: 10px;
 }

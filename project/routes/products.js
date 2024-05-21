@@ -67,15 +67,13 @@ router.get("/:id", async (req, res) => {
 
 // PUT: Update a product
 router.put("/:id", upload.single('image'), async (req, res) => {
-    const updateData = {
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description,
-        category: req.body.category,
-        imageUrl: req.file ? path.join('images', req.file.filename) : undefined
-    };
+    const { name, price, description, category } = req.body;
+    const imageUrl = req.file ? path.join('images', req.file.filename) : undefined;
 
     try {
+        const updateData = { name, price, description, category };
+        if (imageUrl) updateData.imageUrl = imageUrl; // Only update imageUrl if a new image is uploaded
+
         const updatedProduct = await Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
         if (!updatedProduct) {
             return res.status(404).send("Product not found");
