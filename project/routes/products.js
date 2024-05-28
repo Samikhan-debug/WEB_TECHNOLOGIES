@@ -35,15 +35,20 @@ router.post("/", upload.single('image'), async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-    try {
-        const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 6;
-        const skip = (page - 1) * limit;
-        
-        const total = await Product.countDocuments();
-        const products = await Product.find().skip(skip).limit(limit);
+    const search = req.query.search;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 6;
+    const skip = (page - 1) * limit;
 
-        console.log({ products, totalPages: Math.ceil(total / limit), currentPage: page }); // Log to see output
+    let query = {};
+    if (search) {
+        query = { name: { $regex: search, $options: 'i' } }; // Case insensitive searching by name
+    }
+
+    try {
+        const total = await Product.countDocuments(query);
+        const products = await Product.find(query).skip(skip).limit(limit);
+
         res.json({
             products,
             totalPages: Math.ceil(total / limit),
@@ -94,6 +99,8 @@ router.delete("/:id", async (req, res) => {
         res.status(500).send(err);
     }
 });
+
+
 
 
 module.exports = router;

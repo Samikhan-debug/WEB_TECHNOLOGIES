@@ -16,6 +16,7 @@ const Product = require("./models/Product");
 
 
 
+
 // Serve static files from the public directory
 app.use(express.static("public"));
 app.use(bodyParser.json()); // For parsing application/json
@@ -49,6 +50,9 @@ app.use((req, res, next) => {
 app.use(cookieParser());
   app.use('/api/products', productRoutes);
 
+  app.get('/search', (req, res) => {
+    res.render('searchpage');
+});
 
   app.get('/products', (req, res) => res.render('products'));
 // Define routes
@@ -59,6 +63,7 @@ app.get('/', (req, res) => {
 app.get('/contactus', (req, res) => {
     res.render('contactpage');
 });
+
 
 app.get('/cart', (req, res) => {
     res.render('cartpage');
@@ -75,9 +80,7 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('registerpage');
 });
-app.get('/splash', (req, res) => {
-    res.render('splash');
-});
+
 
 
 app.get('/product', (req, res) => {
