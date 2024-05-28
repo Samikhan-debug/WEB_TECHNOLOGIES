@@ -36,7 +36,7 @@ mongoose
   });
 
   app.use(session({
-    secret: 'your-secret-key',  // Change to a strong secret in production
+    secret: 'your-secret-key', 
     resave: false,
     saveUninitialized: false,
   }));
