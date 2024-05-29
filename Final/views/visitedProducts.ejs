@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visited Products</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <h1>Visited Products</h1>
+    <% if (products.length > 0) { %>
+        <ul>
+            <% products.forEach(product => { %>
+                <li><%= product.name %> - $<%= product.price %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No products visited yet.</p>
+    <% } %>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
